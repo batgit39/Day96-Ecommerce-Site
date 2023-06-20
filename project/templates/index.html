@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- Include the header -->
+  {% include 'header.html' %}
+
+  <!-- Page Content -->
+  <div class="container mt-4">
+    <h1>Welcome to My eCommerce Website!</h1>
+    <p>This is the home page of the eCommerce website.</p>
+    
+    <h2>Products</h2>
+    <div class="row">
+      {% for product in products %}
+        <div class="col-lg-4 mb-4">
+          <div class="card">
+            <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">{{ product.price }}</p>
+              <form action="/add_to_cart" method="POST">
+                  <input type="hidden" name="product_id" value="{{ loop.index }}">
+
+                <input type="number" name="quantity" value="1" min="1">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Include the footer -->
+  {% include 'footer.html' %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
