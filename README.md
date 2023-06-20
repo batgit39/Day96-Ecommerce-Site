@@ -1,6 +1,12 @@
 # Day96-Ecommerce-Site
 A basic eCommerce site made with python and bootstrap and stripe,
 
+This can be used by anyone with some basic moditicatins on the database. 
+
+For frontend I used flask and html, css and bootstrap. And for checkout the stripe api.
+
+The database is handled by SQLAlchemy
+
 
 I made it in Dark and Light Mode:
 
